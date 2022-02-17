@@ -4,7 +4,7 @@ const uploadFile=require('./routes/fileUpload')
 const singleModel = require("./routes/singleModel");
   const fs = require("fs");
   const dir = "uploads";
-const PORT=5000;
+const PORT=process.env.PORT|| 5000;
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
 
