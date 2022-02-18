@@ -8,7 +8,9 @@ const storage=multer.diskStorage({
         if (file.mimetype !== "model/gltf-binary") 
         {
             console.log("Wrong file type")
-        error=new Error({error:"Wrong file type"})
+            error=new Error({error:"Wrong file type"})
+            cb(null)
+            return;
         }
         cb(error, "./uploads");
     },
@@ -24,7 +26,15 @@ const storage=multer.diskStorage({
 })
 const upload=multer({storage:storage})
 
-router.post("/", upload.single("model"), (req, res) => {
+router.post("/",upload.single('model'),(req, res) => {
+    // if(req.files===undefined){
+    //     console.log("no file selected")
+    //     res.send({
+    //         error:true,
+    //         msg:"No file selected"
+    //     })
+    //     return 
+    // }
     // console.log("upload",req.file)
 //   try {
 //     console.log(req.body);
