@@ -25,10 +25,10 @@ app.use(express.static("uploads"));
 app.use("/upload", uploadFile);
 app.use('/singleModel',singleModel);
 app.use('/number_of_models',(req,res)=>{
-console.log("ola")
+// console.log("ola")
 try{
   fs.readdir(dir, (err, files) => {
-    console.log(files);
+    // console.log(files);
     var result=[]
     res.send(files);
     

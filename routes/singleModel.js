@@ -7,10 +7,10 @@ const dir = "./uploads";
 
 
 router.get('/:model_id',(req,res)=>{
-    console.log(req.params)
+    // console.log(req.params)
     try{
     const file = path.resolve(`./uploads/${req.params.model_id}`);
-    console.log(file);
+//     console.log(file);
     res.sendFile(path.resolve(`./uploads/${req.params.model_id}`));
 
     }
@@ -19,7 +19,7 @@ router.get('/:model_id',(req,res)=>{
 })
 router.get('/number_of_files',(req,res)=>{
     fs.readdir(dir, (err, files) => {
-      console.log(files.length);
+//       console.log(files.length);
       res.send(files.length)
       return 
     });
